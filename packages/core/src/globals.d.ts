@@ -1,4 +1,5 @@
 declare module "bn.js";
+declare module "web3";
 
 declare module "*.json" {
   const json: any;
