@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { Civil } from '@joincivil/core';
 // import BigNumber from 'bignumber.js';
 import { List } from 'immutable';
+import { Subscription } from 'rxjs';
 const StyledDiv = styled.div`
   display: flex;
   flex-wrap: wrap;
@@ -13,6 +14,7 @@ const StyledDiv = styled.div`
 
 export interface ListingsState {
   applications: List<string>;
+  applicationSubscription: Subscription;
 }
 
 class Listings extends React.Component<{}, ListingsState> {
@@ -20,21 +22,23 @@ class Listings extends React.Component<{}, ListingsState> {
   constructor(props: any) {
     super(props);
     this.state = {
-      applications: List<string>()
+      applications: List<string>(),
+      applicationSubscription: new Subscription()
     };
   }
 
-  componentWillMount() {
+componentWillMount() {
     const civil = new Civil();
     const tcr = civil.getDeployedOwnedAddressTCRWithAppeals();
     const instance = this;
-    tcr.listingsInApplicationStage().subscribe((listing) => {
+    const subscription = tcr.listingsInApplicationStage().subscribe((listing) => {
       instance.setState({applications: this.state.applications.push(listing)});
     });
+    this.setState({applicationSubscription : subscription});
   }
 
 componentWillUnmount() {
-
+    this.state.applicationSubscription.unsubscribe();
   }
 
 render() {
