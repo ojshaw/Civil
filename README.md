@@ -17,6 +17,7 @@ We hope that those tools will be useful for creation of interesting applications
 | [`@joincivil/core`][core-url]                       | [![npm link](https://img.shields.io/badge/npm-core-blue.svg)](https://www.npmjs.com/package/@joincivil/core)                  | JS library for interacting with Civil ecosystem             |
 | [`@joincivil/tslint-rules`](/packages/tslint-rules) | [![npm link](https://img.shields.io/badge/npm-tslint--rules-blue.svg)](https://www.npmjs.com/package/@joincivil/tslint-rules) | Linting rules for Civil's Typescript packages               |
 | [`@joincivil/utils`](/packages/utils)               | [![npm link](https://img.shields.io/badge/npm-utils-blue.svg)](https://www.npmjs.com/package/@joincivil/utils)                | Utilities shared between Civil projects used during runtime |
+| [`@joincivil/components`](/packages/components)     | [![npm link](https://img.shields.io/badge/npm-components-blue.svg)](https://www.npmjs.com/package/@joincivil/components)      | ReactJS components used in Civil webapps                    |
 | [`@joincivil/editor`](/packages/editor)             | [![npm link](https://img.shields.io/badge/npm-editor-blue.svg)](https://www.npmjs.com/package/@joincivil/editor)              | Editor for Civil-formatted articles and content             |
 
 ### Private packages
