@@ -1,6 +1,6 @@
 # Civil Token Curated Registry
 
-The CivilTCR is a Token Curated Registry based on (Mike Goldin's / AdChain's original implementation)[https://github.com/skmgoldin/tcr] with a few modifications:
+The CivilTCR is a Token Curated Registry based on [Mike Goldin's / AdChain's original implementation](https://github.com/skmgoldin/tcr) with a few modifications:
 
 * Listings are keyed by the address of an owned contract, rather than arbitrary hashes
 * Only the owner of the contract can apply on its behalf
@@ -9,9 +9,11 @@ The CivilTCR is a Token Curated Registry based on (Mike Goldin's / AdChain's ori
 
 A flow-chart detailing the application/listing lifecycle is included at the bottom of this page.
 
+Documentation for contracts are generated using `doxity` and can be found at [http://dapp.staging.cvl.pub/contracts](http://dapp.staging.cvl.pub/contracts)
+
 ## Voting
 
-Our voting system is a Partial-Lock Commit-Reveal Voting contract based on (Mike Goldin's / ConsenSys' original implementation)[https://github.com/ConsenSys/PLCRVoting] with a few modifications required to properly distribute tokens to voters when a challenge vote is overturned by the appellate:
+Our voting system is a Partial-Lock Commit-Reveal Voting contract based on [Mike Goldin's / ConsenSys' original implementation](https://github.com/ConsenSys/PLCRVoting) with a few modifications required to properly distribute tokens to voters when a challenge vote is overturned by the appellate:
 
 * Added `getNumLosingTokens(address _voter, uint _pollID, uint _salt)` and `getTotalNumberOfTokensForLosingOption(uint _pollID)` since an overturned challenge treats the losers as the winners.
 
@@ -26,7 +28,7 @@ A "passed" vote is one in which the percentage of YES (1) votes is greater than 
 
 ## Parameters
 
-The parameters used by various aspects of the CivilTCR (e.g. the length of an application) are controlled by the `Parameterizer` contract, based on (Mike Goldin's / AdChain's original implementation)[https://github.com/skmgoldin/tcr] with 2 very minor modifications:
+The parameters used by various aspects of the CivilTCR (e.g. the length of an application) are controlled by the `Parameterizer` contract, based on [Mike Goldin's / AdChain's original implementation](https://github.com/skmgoldin/tcr) with 2 very minor modifications:
 
 * Initializing a few additional parameters in the constructor to support the appeal challenge process.
 * Using an array of values to initialize parameters in constructor, rather than individual constructor parameters, because the additional parameters we added were putting us over the limit for a transaction (when added as individual constructor parameters) and the contract couldn't be initialized.
